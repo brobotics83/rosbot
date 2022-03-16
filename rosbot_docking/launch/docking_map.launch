@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="tag_num" default="0"/>
+    <arg name="ns"      default="rosbot_docking"/>
+
+    <!-- Spawn the rosbot -->
+    <include file="$(find rosbot_description)/launch/rosbot.launch"></include>
+  
+    <!-- Spawn the box. -->
+    <include file="$(find rosbot_docking)/launch/spawn_box.launch">
+        <arg name="ns"      value="$(arg ns)"/>
+        <arg name="tag_num" value="$(arg tag_num)"/>
+        <arg name="x"           default="2"/>
+        <arg name="y"           default="-1"/>
+        <arg name="z"           default="0"/>
+    </include>
+</launch>
